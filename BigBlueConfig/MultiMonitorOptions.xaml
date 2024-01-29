@@ -1,0 +1,31 @@
+﻿<Window x:Class="BigBlueConfig.MultiMonitorOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Multi-Montior Options" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
+    <Grid Margin="10">
+        <StackPanel>
+            <Label Foreground="White" Padding="0 0 0 5">Marquee Monitor</Label>
+            <ComboBox x:Name="MarqueeDisplayName" HorizontalAlignment="Left" TabIndex="6" VerticalAlignment="Top" Width="180" Margin="0, 0, 0, 10"></ComboBox>
+            <Label Foreground="White" Padding="0 0 0 5">Flyer Monitor</Label>
+            <ComboBox x:Name="FlyerDisplayName" HorizontalAlignment="Left" TabIndex="7" VerticalAlignment="Top" Width="180" Margin="0, 0, 0, 10"></ComboBox>
+            <Label Foreground="White" Padding="0 0 0 5">Instruction Monitor</Label>
+            <ComboBox x:Name="InstructionDisplayName" TabIndex="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="0, 0, 0, 10"></ComboBox>
+            <Label Foreground="White" Padding="0 0 0 5">Surround Monitor Configuration</Label>
+            <ComboBox x:Name="SurroundMonitorConfigurationComboBox" TabIndex="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="0, 0, 0, 10">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>Up</ComboBoxItem>
+                <ComboBoxItem>Down</ComboBoxItem>
+                <ComboBoxItem>Left</ComboBoxItem>
+                <ComboBoxItem>Right</ComboBoxItem>
+            </ComboBox>
+            <Label Foreground="White" Padding="0 0 0 5">Secondary Surround Monitor</Label>
+            <ComboBox x:Name="SecondarySurroundMonitorComboBox" TabIndex="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="0, 0, 0, 20"></ComboBox>
+
+            <Button x:Name="Save" Background="#FFCC00" Foreground="#0F228B" FontWeight="Bold" Width="80" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Save_Click">Save</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="BigBlueConfig.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Options" Background="#0F228B" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
+    <Grid Margin="30">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button x:Name="GeneralOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="GeneralOptionsButton_Click">General Options</Button>
+            <Button x:Name="ClassicOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ClassicOptionsButton_Click">Classic Theme Options</Button>
+            <Button x:Name="DesktopOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DesktopOptionsButton_Click">Desktop Theme Options</Button>
+            <Button x:Name="MultiMonitorOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 20" HorizontalAlignment="Left" VerticalAlignment="Center" Click="MultiMonitorOptionsButton_Click">Multi-Monitor Options</Button>
+            <Button x:Name="ControlOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 20" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ControlOptionsButton_Click">Control Options</Button>
+            <Button x:Name="SoundOptionsButton" Background="#FFCC00" Foreground="#0F228B" MinWidth="340" FontSize="30" FontFamily="Arial" Padding="4" Margin="0, 0, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SoundOptionsButton_Click">Sound Options</Button>
+        </StackPanel>
+    </Grid>
+</Window>

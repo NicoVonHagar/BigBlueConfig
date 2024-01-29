@@ -1,0 +1,28 @@
+﻿<Window x:Class="BigBlueConfig.ControlOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Control Options" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
+    <WrapPanel Orientation="Vertical">
+        <Label Foreground="White" Margin="5, 0, 0, 0">Global Inputs</Label>
+        <CheckBox Margin="10, 0, 0, 0" x:Name="GlobalInputs" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+
+        <Label Foreground="White" Margin="5, 0, 0, 0" Width="140" HorizontalAlignment="Left" VerticalAlignment="Top">Disable Menu</Label>
+        <CheckBox Margin="10, 0, 0, 0" Width="20" Height="20" x:Name="MenuCheckBox" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+
+        <Label Foreground="White" Margin="5, 0, 0, 0">Trap Mouse Cursor</Label>
+        <CheckBox Margin="10, 0, 0, 0" x:Name="TrapMouseCursorCheckbox" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+
+
+        <Label Foreground="White" Margin="5, 0, 0, 0" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top">Allow Exit to Desktop</Label>
+        <CheckBox Margin="10, 0, 0, 0" Width="20" Height="20" x:Name="ExitToDesktopCheckBox" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <Label Foreground="White" Margin="5, 0, 0, 0">Free-for-All Game Mode</Label>
+        <CheckBox Margin="10, 0, 0, 0" x:Name="FFACheckbox" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <Label Foreground="White" Margin="5, 0, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Left">Launch Input Delay (ms)</Label>
+        <TextBox x:Name="InputDelay" Width="145" Height="22" Margin="10, 0, 0, 20" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <Button x:Name="Save" Background="#FFCC00" FontWeight="Bold" Width="80" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 10, 10" Click="Save_Click">Save</Button>
+    </WrapPanel>
+</Window>

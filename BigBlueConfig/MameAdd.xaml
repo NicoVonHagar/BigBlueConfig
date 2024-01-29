@@ -1,0 +1,104 @@
+﻿<Window x:Class="BigBlueConfig.MameAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Add Games from M.A.M.E." Height="580" Width="960" ResizeMode="NoResize" Background="#0F228B" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <XmlDataProvider x:Key="EmulatorData" XPath="/programs/program" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <XmlDataProvider x:Key="Data" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <XmlDataProvider x:Key="MameData" XPath="/mame/game" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+    </Window.Resources>
+    <Grid>
+        <Label Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 2, 0, 0">M.A.M.E. Location</Label>
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Margin="10,26,0,0" x:Name="MameLocation" Width="724" />
+        <Button Content="Browse" HorizontalAlignment="Right" FontWeight="Bold" Background="#FFCC00" Height="32" Foreground="#0F228B" Margin="0,26,130,0" x:Name="SelectMameButton" VerticalAlignment="Top" Width="70" Click="SelectMameButton_Click"></Button>
+        <Button x:Name="UpdateMameList" Click="UpdateMameList_Click" FontWeight="Bold" Background="#FFCC00" Height="32" Foreground="#0F228B" HorizontalAlignment="Right" Width="110" VerticalAlignment="Top" Margin="0, 26, 10, 0">Update M.A.M.E.</Button>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Foreground="White" Margin="7,60,0,0">Name</Label>
+        <TextBox VerticalContentAlignment="Center" Width="279" x:Name="GameTitle" Height="32" TextChanged="GameTitle_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,84,0,0"></TextBox>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,61,0,0" Foreground="White">Manufacturer</Label>
+        <!--<TextBox x:Name="Manufacturer"></TextBox>-->
+        <ComboBox VerticalContentAlignment="Center" Margin="300,84,0,0" x:Name="Manufacturers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="162" Height="32" DropDownClosed="Manufacturers_DropDownClosed">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <Label Margin="0,62,8,0" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White">Clones</Label>
+        <CheckBox Checked="CloneCheckbox_Checked" Unchecked="CloneCheckbox_Unchecked" Margin="0,89,25,0" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="CloneCheckbox"></CheckBox>
+        <Label HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" Width="70" Margin="0,61,396,0">From Year</Label>
+        <ComboBox VerticalContentAlignment="Center" x:Name="From" Width="60" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" DropDownClosed="From_DropDownClosed" Margin="0,84,401,0">
+            <TextBlock></TextBlock>
+        </ComboBox>
+        <Label Foreground="White" Width="70" Margin="0,61,324,0" HorizontalAlignment="Right" VerticalAlignment="Top">To Year</Label>
+        <ComboBox VerticalContentAlignment="Center" x:Name="To" Width="60" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" DropDownClosed="To_DropDownClosed" Margin="0,84,330,0">
+            <TextBlock></TextBlock>
+        </ComboBox>
+        <Label Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" Margin="0,61,222,0">Screen</Label>
+        <ComboBox VerticalContentAlignment="Center" x:Name="ScreenTypeComboBox" Width="60" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" DropDownClosed="ScreenTypeComboBox_DropDownClosed" Margin="0,84,259,0">
+            <TextBlock></TextBlock>
+            <TextBlock>Raster</TextBlock>
+            <TextBlock>Vector</TextBlock>
+        </ComboBox>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,61,115,0">Refresh Rate</Label>
+        <Label Foreground="White" Width="53" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,61,52,0">Players</Label>
+        <Label Foreground="White" Width="16" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,81,140,0">-</Label>
+        <ComboBox VerticalContentAlignment="Center" x:Name="NumberOfPlayers" Width="46" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" DropDownClosed="NumberOfPlayers_DropDownClosed" Margin="0,84,57,0">
+            <TextBlock></TextBlock>
+            <TextBlock>1</TextBlock>
+            <TextBlock>2</TextBlock>
+            <TextBlock>3</TextBlock>
+            <TextBlock>4</TextBlock>
+            <TextBlock>5</TextBlock>
+            <TextBlock>6</TextBlock>
+        </ComboBox>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,61,199,0">Rotation</Label>
+        <ComboBox VerticalContentAlignment="Center" x:Name="ScreenOrientationComboBox" Width="54" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,84,195,0" DropDownClosed="ScreenOrientationComboBox_DropDownClosed">
+            <TextBlock></TextBlock>
+            <TextBlock>90°</TextBlock>
+            <TextBlock>180°</TextBlock>
+            <TextBlock>270°</TextBlock>
+        </ComboBox>
+        <StackPanel Margin="10 0 0 54" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="450" Height="370" AllowDrop="True" ScrollViewer.IsDeferredScrollingEnabled="True" VirtualizingStackPanel.IsVirtualizing="True">
+            <Label Foreground="White" FontWeight="Bold" HorizontalAlignment="Center">M.A.M.E. Games</Label>
+            <ListBox x:Name="MameQueryResults" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="450" Height="344" ItemsSource="{Binding Source={StaticResource MameData}}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectionMode="Extended">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Width="450" Text="{Binding XPath=description}" MouseDown="TextBlock_MouseDown"  MouseLeftButtonDown="QueryButton_PreviewMouseLeftButtonDown_1" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel x:Name="TargetGameList" Margin="0 0 10 54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="450" Height="370" AllowDrop="True" PreviewKeyDown="TargetGameList_PreviewKeyDown" VirtualizingStackPanel.IsVirtualizing="True" ScrollViewer.IsDeferredScrollingEnabled="True">
+            <Label x:Name="GameListLabel" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center"></Label>
+            <ListBox x:Name="GamesList" Width="450" Height="344" Drop="ListBox_Drop_1" ItemsSource="{Binding Source={StaticResource Data}}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectionMode="Extended">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding XPath=name}" />
+                        <!--
+                        <TextBlock Text="{Binding Path=Element[title].Value}" />
+                        -->
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Button Click="ResetButton_Click_1" FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" HorizontalAlignment="Left" Margin="10,0,00, 10" VerticalAlignment="Bottom" x:Name="ResetButton" Width="90" Height="32">Reset Filters</Button>
+        <TextBlock x:Name="ResultCount" HorizontalAlignment="Left" FontWeight="Bold" VerticalAlignment="Bottom" Margin="110, 0, 00, 15" Width="90" Height="20" Foreground="White"></TextBlock>
+        <Label VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="340, 0, 0, 13" Foreground="White">Clean up game name</Label>
+        <CheckBox x:Name="CleanGameNameCheckbox" Margin="326, 0, 0, 19" VerticalAlignment="Bottom" HorizontalAlignment="Left"></CheckBox>
+        <Label VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 350, 13" Foreground="White">M.A.M.E. template...</Label>
+        <ComboBox x:Name="EmulatorList" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="334" Margin="0, 0, 10, 14" ItemsSource="{Binding Source={StaticResource EmulatorData}}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding XPath=name}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox VerticalContentAlignment="Center" x:Name="MinRefreshTextBox" Height="32" Width="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,84,155,0" TextChanged="RefreshTextBox_TextChanged"/>
+        <TextBox VerticalContentAlignment="Center" x:Name="MaxRefreshTextBox" Width="30" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,84,112,0" TextChanged="RefreshTextBox_TextChanged"/>
+    </Grid>
+</Window>

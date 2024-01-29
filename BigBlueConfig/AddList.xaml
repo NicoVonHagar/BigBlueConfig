@@ -1,0 +1,62 @@
+﻿<Window x:Class="BigBlueConfig.AddList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Add List"  Height="450" Width="620" ResizeMode="NoResize" Background="#0F228B" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <XmlDataProvider x:Key="Data" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <local:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+    </Window.Resources>
+    <StackPanel Margin="20 10 20 10">
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Label</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox Width="570" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0" x:Name="GameTitle"></TextBox>
+        </DockPanel>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Snapshot</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0" x:Name="GameThumbnail"></TextBox>
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="ThumbnailBrowser" Content="Browse" HorizontalAlignment="Right" Margin="0, 0, 10, 0" VerticalAlignment="Top" Width="54" Click="ThumbnailBrowser_Click_1"></Button>
+        </DockPanel>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Video Preview</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox x:Name="VideoPreview" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="VideoBrowser" Click="VideoBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
+        </DockPanel>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Marquee Image</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox x:Name="MarqueeImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="MarqueeBrowser" Click="MarqueeBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
+        </DockPanel>
+
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Flyer Image</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox x:Name="FlyerImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="FlyerBrowser" Click="FlyerBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
+        </DockPanel>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Instruction Image</Label>
+        <DockPanel Margin="0 0 0 10">
+            <TextBox x:Name="InstructionImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="InstructionBrowser" Click="InstructionBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
+        </DockPanel>
+        
+
+        
+        <DockPanel Margin="0 0 0 10">
+            <Label x:Name="DefaultListLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Default List / Folder</Label>
+            <CheckBox x:Name="DefaultListCheckbox" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding XPath=@default, Source={StaticResource Data}, Converter={StaticResource StringToBooleanConverter}}"></CheckBox>
+        </DockPanel>
+
+        <DockPanel Margin="0 0 0 10">
+            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="AddGameButton" Width="120" Height="32" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0, 0, 0, 0" Click="AddGameButton_Click_1">Add</Button>
+        </DockPanel>
+        
+    </StackPanel>
+</Window>

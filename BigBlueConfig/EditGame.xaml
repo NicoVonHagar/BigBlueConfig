@@ -1,0 +1,145 @@
+﻿<Window x:Class="BigBlueConfig.EditGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Edit List Item" Background="#0F228B" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <XmlDataProvider x:Key="EmulatorData" XPath="/programs/program" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <XmlDataProvider x:Key="Data" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <local:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" Margin="20">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="0 0 20 0">
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10">
+                    <Label Foreground="White" HorizontalAlignment="Left">Label</Label>
+                    <TextBox Width="584" HorizontalAlignment="Left" x:Name="GameTitle"></TextBox>
+                </StackPanel>
+                <Label x:Name="FolderLocationLabel" Foreground="White" HorizontalAlignment="Left" Visibility="Collapsed">Folder Location</Label>
+                <DockPanel Margin="0 0 0 10" x:Name="FolderLocationInputs" Visibility="Collapsed">
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="FolderLocationTextBox" Width="520" />
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="FolderLocationButton" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Click="FolderLocationButton_Click"></Button>
+                </DockPanel>
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10" x:Name="FolderSearchPatternContainer" Visibility="Collapsed">
+                    <Label x:Name="FolderSearchPatternLabel" Foreground="White" HorizontalAlignment="Left">Folder Search Pattern</Label>
+                    <TextBox Width="584" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="FolderSearchPatternTextBox"></TextBox>
+                </StackPanel>
+                <Label x:Name="TemplateLabel" Foreground="White" HorizontalAlignment="Left" Visibility="Collapsed">Folder Template</Label>
+                <DockPanel x:Name="TemplateContainer" Visibility="Collapsed" Margin="0 0 0 10">
+                    <ComboBox x:Name="EmulatorList" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="520" ItemsSource="{Binding Source={StaticResource EmulatorData}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding XPath=name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" HorizontalAlignment="Right" x:Name="TemplateCombobox" Click="TemplateCombobox_Click" Width="60">Populate</Button>
+                </DockPanel>
+                <Label x:Name="LocationLabel" Foreground="White" HorizontalAlignment="Left">Program Location</Label>
+                <DockPanel Margin="0 0 0 10" x:Name="ProgramLocationContainer">
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="GameLocation" Width="520" />
+                    <Button FontWeight="Bold" Background="#FFCC00" Content="Browse" HorizontalAlignment="Right" Foreground="#0F228B" x:Name="ProgramLocationBrowseButton" VerticalAlignment="Top" Width="60" Click="ProgramLocationBrowseButton_Click"/>
+                </DockPanel>
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10" x:Name="CommandlineParameterContainer">
+                    <Label x:Name="ArgsLabel" Foreground="White" HorizontalAlignment="Left">Commandline Parameters</Label>
+                    <TextBox Width="584" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="GameArgs"></TextBox>
+                </StackPanel>
+                <Label x:Name="ThumbnailLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Snapshot Location</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="GameThumbnail"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="ThumbnailBrowser" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Click="ThumbnailBrowser_Click_1"></Button>
+                </DockPanel>
+                <Label x:Name="SnapshotTemplateLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">Snapshot Template</Label>
+                <DockPanel Margin="0 0 0 10" Visibility="Collapsed" x:Name="SnapshotTemplateContainer">
+                    <TextBox Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="SnapshotTemplateTextBox"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="SnapshotTemplateButton" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Click="SnapshotTemplateButton_Click"></Button>
+                </DockPanel>
+                <Label x:Name="VideoLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Video Preview Location</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="VideoPreview" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="VideoBrowser" Click="VideoBrowser_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="VideoTemplateLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">Video Preview Template</Label>
+                <DockPanel Margin="0 0 0 10" Visibility="Collapsed" x:Name="VideoTemplateContainer">
+                    <TextBox x:Name="VideoTemplatePreview" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="VideoTemplateButton" Click="VideoTemplateButton_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10" x:Name="ForceCloseContainer">
+                    <Label x:Name="ForceCloseLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Kill Task When Pressing Exit</Label>
+                    <CheckBox x:Name="KillProcessCheckbox" HorizontalAlignment="Left" VerticalAlignment="Center"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10" x:Name="AutoRunContainer">
+                    <Label x:Name="AutoRunLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Autorun List Item</Label>
+                    <CheckBox x:Name="AutoRunCheckbox" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding XPath=@autorun, Source={StaticResource Data}, Converter={StaticResource StringToBooleanConverter}}"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10" x:Name="DefaultListContainer">
+                    <Label x:Name="DefaultListLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Default List / Folder</Label>
+                    <CheckBox x:Name="DefaultListCheckbox" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding XPath=list/@default, Source={StaticResource Data}, Converter={StaticResource StringToBooleanConverter}}"></CheckBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="584">
+                <Label x:Name="MarqueeLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Item Marquee Image</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="MarqueeImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="MarqueeBrowser" Click="MarqueeBrowser_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="MarqueeTemplateLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">Marquee Image Template</Label>
+                <DockPanel Margin="0 0 0 10" x:Name="MarqueeTemplateContainer" Visibility="Collapsed">
+                    <TextBox x:Name="MarqueeImageTemplateTextBox" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="MarqueeTemplateBrowserButton" Click="MarqueeTemplateBrowserButton_Click"  Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="FlyerLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Item Flyer Image</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="FlyerImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="FlyerBrowser" Click="FlyerBrowser_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="FlyerTemplateLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">Flyer Image Template</Label>
+                <DockPanel Margin="0 0 0 10" x:Name="FlyerTemplateContainer" Visibility="Collapsed">
+                    <TextBox x:Name="FlyerTemplateImageTextBox" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="FlyerTemplateBrowserButton" Click="FlyerTemplateBrowserButton_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="InstructionLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Item Instruction Image</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="InstructionImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Background="#FFCC00" x:Name="InstructionBrowser" Foreground="#0F228B" Click="InstructionBrowser_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="InstructionTemplateLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">Instruction Image Template</Label>
+                <DockPanel Margin="0 0 0 10" x:Name="InstructionImageTemplateContainer" Visibility="Collapsed">
+                    <TextBox x:Name="InstructionTemplateImageTextBox" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <Button FontWeight="Bold" Background="#FFCC00" x:Name="InstructionTemplateBrowserButton" Foreground="#0F228B" Click="InstructionTemplateBrowserButton_Click" Content="Browse" Width="60" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
+                </DockPanel>
+                <Label x:Name="PreLaunchLabel" Foreground="White" HorizontalAlignment="Left">Pre-Launch Program Location</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="PreLaunchLocation" Width="520" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+                    <Button FontWeight="Bold" Background="#FFCC00" Content="Browse" HorizontalAlignment="Right" Foreground="#0F228B" x:Name="PreLaunchLocationBrowse" VerticalAlignment="Top" Width="60" Click="PreLaunchLocationBrowse_Click"></Button>
+                </DockPanel>
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10">
+                    <Label x:Name="PreArgsLabel" Foreground="White" HorizontalAlignment="Left">Pre-Launch Commandline Parameters</Label>
+                    <TextBox x:Name="PreLaunchArgs" Width="584" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <Label x:Name="PostProgramLabel" Foreground="White" HorizontalAlignment="Left">Post-Launch Program Location</Label>
+                <DockPanel Margin="0 0 0 10">
+                    <TextBox x:Name="PostLaunchLocation" Width="520" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+                    <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" Content="Browse" HorizontalAlignment="Right" x:Name="PostLaunchLocationBrowse" VerticalAlignment="Top" Width="60" Click="PostLaunchLocationBrowse_Click"></Button>
+                </DockPanel>
+                <StackPanel Orientation="Vertical" Margin="0 0 0 20">
+                    <Label x:Name="PostLaunchArgsLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Post-Launch Commandline Parameters</Label>
+                    <TextBox x:Name="PostLaunchArgs" Width="584" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <DockPanel HorizontalAlignment="Center">
+            <Button x:Name="TestGameButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="TestGameButton_Click">Test</Button>
+            <Button x:Name="EditGameButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="EditGameButton_Click">Save</Button>
+            <Button x:Name="CopyGameButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="CopyGameButton_Click">Copy</Button>
+            <Button x:Name="MoveGameButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="MoveGameButton_Click_1">Move</Button>
+            <Button x:Name="ConvertToListButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="ConvertToListButton_Click">Convert to List</Button>
+            <Button x:Name="ConvertToListItemButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="ConvertToListItemButton_Click" Visibility="Collapsed">Convert to List Item</Button>
+            <Button x:Name="ConvertToFolderButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Center" Click="ConvertToFolderButton_Click">Convert to Folder</Button>
+            <Button x:Name="DeleteGameButton" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Padding="10" Margin="6 0 6 0" VerticalAlignment="Bottom" Click="DeleteGameButton_Click">Delete</Button>
+        </DockPanel>
+    </StackPanel>
+</Window>

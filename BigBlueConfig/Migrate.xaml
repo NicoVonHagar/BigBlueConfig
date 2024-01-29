@@ -1,0 +1,39 @@
+﻿<Window x:Class="BigBlueConfig.Migrate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Migrate" Height="340" Width="600" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <StackPanel Margin="5 10 10 10">
+            <Label Foreground="White" Margin="0, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top">Value to Migrate</Label>
+            <ComboBox x:Name="XmlNodeToMigrate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="5, 0, 0, 10">
+                <ComboBoxItem>dir</ComboBoxItem>
+                <ComboBoxItem>exe</ComboBoxItem>
+                <ComboBoxItem>args</ComboBoxItem>
+                <ComboBoxItem>snap</ComboBoxItem>
+                <ComboBoxItem>video</ComboBoxItem>
+                <ComboBoxItem>marquee</ComboBoxItem>
+                <ComboBoxItem>flyer</ComboBoxItem>
+                <ComboBoxItem>instruct</ComboBoxItem>
+                <ComboBoxItem>predir</ComboBoxItem>
+                <ComboBoxItem>preexe</ComboBoxItem>
+                <ComboBoxItem>preargs</ComboBoxItem>
+                <ComboBoxItem>postdir</ComboBoxItem>
+                <ComboBoxItem>postexe</ComboBoxItem>
+                <ComboBoxItem>postargs</ComboBoxItem>
+                <ComboBoxItem>Migrate all values</ComboBoxItem>
+            </ComboBox>
+            <Label Foreground="White">Original Value</Label>
+            <TextBox x:Name="SourcePath" Width="595" Margin="5 0 0 10"></TextBox>
+            <Button Background="#FFCC00" Foreground="#0F228B" FontWeight="Bold" HorizontalAlignment="Right" Margin="0 0 0 10" x:Name="SourceDirectory" Width="90" Height="32" Click="SourceDirectory_Click">Browse</Button>
+            <Label Foreground="White">New Value</Label>
+            <TextBox x:Name="TargetPath" Width="595" Margin="5 0 0 10"></TextBox>
+            <Button Background="#FFCC00" Foreground="#0F228B" FontWeight="Bold" HorizontalAlignment="Right" x:Name="TargetDirectory" Width="90" Height="32" Click="TargetDirectory_Click">Browse</Button>
+
+        </StackPanel>
+        <Button x:Name="MigrationButton" Background="#FFCC00" Foreground="#0F228B" FontWeight="Bold" Width="90" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 10 0 10" Click="Button_Click">Migrate</Button>
+    </Grid>
+</Window>

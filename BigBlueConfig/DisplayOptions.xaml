@@ -1,0 +1,38 @@
+﻿<Window x:Class="BigBlueConfig.DisplayOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Display Options" ResizeMode="NoResize" Background="#0F228B" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Width="200" Margin="0 0 0 20">
+                <Label Foreground="White" Padding="0">User Interface</Label>
+                <ComboBox x:Name="UserInterfaceComboBox" HorizontalAlignment="Left" TabIndex="5" VerticalAlignment="Top" Width="148" SelectedValuePath="Content">
+                    <ComboBoxItem>Classic</ComboBoxItem>
+                    <ComboBoxItem>Desktop</ComboBoxItem>
+                    <ComboBoxItem>Custom</ComboBoxItem>
+                </ComboBox>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Width="200" Margin="0 0 0 20">
+                <Label Foreground="White" Padding="0">Custom Theme</Label>
+                <ComboBox x:Name="CustomThemeComboBox" HorizontalAlignment="Left" TabIndex="5" VerticalAlignment="Top" Width="148" SelectedValuePath="Content"></ComboBox>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Width="130" Margin="0, 0, 0, 10">
+                <Label Foreground="White" Padding="0">Show Window Border</Label>
+                <CheckBox TabIndex="16" Width="20" Height="20" x:Name="WindowBorderCheckBox" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Width="130" Margin="0, 0, 0, 10">
+                <Label Foreground="White" Width="150" Padding="0">Loop Videos</Label>
+                <CheckBox TabIndex="17" x:Name="LoopVideoCheckbox" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Width="160" Margin="0, 0, 0, 10">
+                <Label Foreground="White" Width="160" Padding="0">Hide Mouse Cursor</Label>
+                <CheckBox TabIndex="18" x:Name="HideMouseCursor" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+            </TextBlock>
+            <Button x:Name="Save" Background="#FFCC00" Foreground="#0F228B" FontWeight="Bold" Width="80" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Save_Click">Save</Button>
+        </StackPanel>
+    </Grid>
+</Window>

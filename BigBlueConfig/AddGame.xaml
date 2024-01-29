@@ -1,0 +1,63 @@
+﻿<Window x:Class="BigBlueConfig.AddGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Add List Item" Height="860" Width="620" ResizeMode="NoResize" Background="#0F228B" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <XmlDataProvider x:Key="Data" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+    </Window.Resources>
+    <Grid>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 0, 0, 0">Label</Label>
+        <TextBox Width="584" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 30, 0, 0" x:Name="GameTitle"></TextBox>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 60, 0, 0">Program Location</Label>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 90, 0, 0" x:Name="GameLocation" Width="520" />
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Content="Browse" HorizontalAlignment="Right" Margin="0,90,10,0" x:Name="button1" VerticalAlignment="Top" Width="54" Click="button1_Click"/>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 120, 0, 0">Snapshot</Label>
+        <TextBox Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 150, 0, 0" x:Name="GameThumbnail"></TextBox>
+        <Button FontWeight="Bold" Background="#FFCC00" x:Name="ThumbnailBrowser" Content="Browse" HorizontalAlignment="Right" Margin="0, 150, 10, 0" VerticalAlignment="Top" Width="54" Click="ThumbnailBrowser_Click_1"></Button>
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 180, 0, 0">Video Preview</Label>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="VideoBrowser" Click="VideoBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 210, 10, 0"></Button>
+        <TextBox x:Name="VideoPreview" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 210, 0, 0"></TextBox>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 240, 0, 0">Marquee Image</Label>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="MarqueeBrowser" Click="MarqueeBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 270, 10, 0"></Button>
+        <TextBox x:Name="MarqueeImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 270, 0, 0"></TextBox>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 300, 0, 0">Flyer Image</Label>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="FlyerBrowser" Click="FlyerBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 330, 10, 0"></Button>
+        <TextBox x:Name="FlyerImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 330, 0, 0"></TextBox>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 360, 0, 0">Instruction Image</Label>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="InstructionBrowser" Click="InstructionBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 390, 10, 0"></Button>
+        <TextBox x:Name="InstructionImage" Width="520" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 390, 0, 0"></TextBox>
+
+        <Label Foreground="White" HorizontalAlignment="Left" Margin="5, 420, 0, 0">Commandline Parameters</Label>
+        <TextBox Width="584" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 450, 0, 10" x:Name="GameArgs"></TextBox>
+
+        <Label Foreground="White" HorizontalAlignment="Left" Margin="5, 480, 0, 0">Pre-Launch Program Location</Label>
+        <TextBox x:Name="PreLaunchLocation" Width="520" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,510,0,0"></TextBox>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Content="Browse" HorizontalAlignment="Right" Margin="0,510,10,0" x:Name="PreLaunchLocationBrowse" VerticalAlignment="Top" Width="54" Click="PreLaunchLocationBrowse_Click"></Button>
+
+        <Label Foreground="White" HorizontalAlignment="Left" Margin="5, 540, 0, 0">Pre-Launch Commandline Parameters</Label>
+        <TextBox x:Name="PreLaunchArgs" Width="584" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 570, 0, 10"></TextBox>
+
+        <Label Foreground="White" HorizontalAlignment="Left" Margin="5, 600, 0, 0">Post-Launch Program Location</Label>
+        <TextBox x:Name="PostLaunchLocation" Width="520" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,630,0,0"></TextBox>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Content="Browse" HorizontalAlignment="Right" Margin="0,630,10,0" x:Name="PostLaunchLocationBrowse" VerticalAlignment="Top" Width="54" Click="PostLaunchLocationBrowse_Click"></Button>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 660, 0, 0">Post-Launch Commandline Parameters</Label>
+        <TextBox x:Name="PostLaunchArgs" Width="584" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 690, 0, 10"></TextBox>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 720, 0, 10">Force program to close when menu/exit control is pressed (requires global inputs to be enabled)</Label>
+        <CheckBox x:Name="KillProcessCheckbox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 744, 0, 10"></CheckBox>
+
+        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5, 760, 0, 10">Automatically launch program when the frontend starts</Label>
+        <CheckBox x:Name="AutoRunCheckbox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 784, 0, 10"></CheckBox>
+
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="AddGameButton" Width="120" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 10, 10" Click="AddGameButton_Click_1">Add</Button>
+        <Button FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" x:Name="TestGameButton" Width="90" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 180, 10" Click="TestGameButton_Click">Test</Button>
+    </Grid>
+</Window>

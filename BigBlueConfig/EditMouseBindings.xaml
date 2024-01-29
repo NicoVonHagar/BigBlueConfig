@@ -1,0 +1,81 @@
+﻿<local:RawInputWindow x:Class="BigBlueConfig.EditMouseBindings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BigBlueConfig"
+        mc:Ignorable="d"
+        Title="Edit Controls" Height="560" Width="800" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <XmlDataProvider x:Key="Controls" XPath="/config/controls/control" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <ObjectDataProvider x:Key="Actions" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <ObjectDataProvider x:Key="Devices" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        <!--
+        <ObjectDataProvider x:Key="DeviceTypes" IsAsynchronous="False" IsInitialLoadEnabled="True" />
+        -->
+    </Window.Resources>
+    <Grid x:Name="Keys">
+        <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 8, 0, 0">Devices</Label>
+        <ComboBox x:Name="Mice" SelectedValuePath="Key" DisplayMemberPath="Value" Margin="60, 10, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" SelectionChanged="Mice_SelectionChanged"></ComboBox>
+        <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430, 8, 0, 0">ID</Label>
+        <TextBox x:Name="MouseID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="452, 10, 0, 0" IsEnabled="False"></TextBox>
+        <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560, 8, 0, 0">VID</Label>
+        <TextBox x:Name="VID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="592, 10, 0, 0" IsEnabled="False"></TextBox>
+        <Label FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="672, 8, 0, 0">PID</Label>
+        <TextBox x:Name="PID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Margin="704, 10, 0, 0" IsEnabled="False"></TextBox>
+        <DataGrid x:Name="BigBlueControls" IsReadOnly="False" ItemsSource="{Binding}" Margin="10, 45, 10, 10" Width="764" HorizontalAlignment="Left" VerticalAlignment="Top" CanUserAddRows="False" AlternatingRowBackground="AliceBlue" AutoGenerateColumns="False" DataGridCell.Selected="BigBlueControls_Selected" Height="420" CellEditEnding="DataGrid_CellEditEnding" CurrentCellChanged="DataGrid_CurrentCellChanged">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn SortMemberPath="label" Header="Device Label" CanUserSort="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource Devices}}" DisplayMemberPath="labelX" SelectedValuePath="device" SelectedValue="{Binding device, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--
+                <DataGridTemplateColumn SortMemberPath="deviceType" Header="Device Type" CanUserSort="True" Width="*">
+                -->
+                <!--
+                    Binding="{Binding Path=deviceType}"
+                    <DataGridTemplateColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type TextBox}">
+                            <EventSetter Event="TextChanged" Handler="Device_Type_TextChanged" />
+                        </Style>
+                    </DataGridTemplateColumn.EditingElementStyle>
+                    
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource DeviceTypes}}" SelectedItem="{Binding Path=deviceType, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+-->
+                <DataGridTemplateColumn Header="Action" CanUserSort="True" SortMemberPath="action" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedItem="{Binding Path=action, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Source={StaticResource Actions}}">
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Input" Binding="{Binding Path=input}" CanUserSort="True" SortMemberPath="input" Width="*">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type TextBox}">
+                            <EventSetter Event="GotFocus" Handler="TextBox_Focus" />
+                            <EventSetter Event="LostFocus" Handler="TextBox_LostFocus" />
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <!--<DataGridTextColumn Header="Action" Binding="{Binding Path=Attributes[input].Value}" />-->
+
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button x:Name="DeleteKeyBindingsButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Width="88" Height="32" Margin="350, 0, 230, 10" Click="DeleteKeyBindingsButton_Click">Delete Input</Button>
+        <Button x:Name="AddKeyBindingsButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Width="88" Height="32" Margin="350, 0, 120, 10" Click="AddKeyBindingsButton_Click">Add Input</Button>
+        <Button x:Name="SaveKeyBindingsButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="#0F228B" Background="#FFCC00" Width="88" Height="32" Margin="350, 0, 10, 10" Click="SaveKeyBindingsButton_Click">Save</Button>
+    </Grid>
+</local:RawInputWindow>
