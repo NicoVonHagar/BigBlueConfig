@@ -522,7 +522,7 @@ namespace BigBlueConfig
 
         private void AddListButton_Click(object sender, RoutedEventArgs e)
         {
-            AddList weow = new(xdp, GamesList.SelectedIndex, tempXpath)
+            AddList weow = new(GamesList.SelectedIndex, tempXpath)
             {
                 Owner = this
             };

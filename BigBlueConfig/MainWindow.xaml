@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BigBlueConfig"
         mc:Ignorable="d"
-        Title="Big Blue Configuration" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+        Title="Frontend Configuration" Background="#0F228B" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid Margin="30">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 0">
-            <Button x:Name="LaunchBBButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 0, 0, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LaunchBBButton_Click">Launch Big Blue</Button>
-            <Button x:Name="GameListButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 16, 0, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2">Lists</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="293*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <Button x:Name="GameListButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 0, 0, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2">Lists</Button>
             <Button x:Name="EmulatorsButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 16, 0, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EmulatorsButton_Click">Program Templates</Button>
+            <!--
             <Button x:Name="KeyBindingButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 16, 0, 10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click">Controls</Button>
+            -->
             <Button x:Name="MigrateButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 16, 0, 10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="MigrateButton_Click">Migration</Button>
+            <!--
             <Button x:Name="OptionButton" Width="320" FontSize="30" FontFamily="Arial" Background="#FFCC00" Foreground="#0F228B" Padding="4" Margin="0, 16, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_3">Options</Button>
+            -->
         </StackPanel>
     </Grid>
 </Window>

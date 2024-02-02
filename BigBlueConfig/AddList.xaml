@@ -5,58 +5,106 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BigBlueConfig"
         mc:Ignorable="d"
-        Title="Add List"  Height="450" Width="620" ResizeMode="NoResize" Background="#0F228B" WindowStartupLocation="CenterOwner">
+        Height="450" Width="620"
+        ResizeMode="CanResizeWithGrip" 
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        MouseDoubleClick="Window_MouseDoubleClick"
+        MouseDown="Window_MouseDown">
     <Window.Resources>
         <XmlDataProvider x:Key="Data" IsAsynchronous="False" IsInitialLoadEnabled="True" />
         <local:StringToBooleanConverter x:Key="StringToBooleanConverter" />
     </Window.Resources>
-    <StackPanel Margin="20 10 20 10">
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Label</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox Width="570" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0" x:Name="GameTitle"></TextBox>
-        </DockPanel>
+    <Grid Background="#3F404E">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Snapshot</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0" x:Name="GameThumbnail"></TextBox>
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="ThumbnailBrowser" Content="Browse" HorizontalAlignment="Right" Margin="0, 0, 10, 0" VerticalAlignment="Top" Width="54" Click="ThumbnailBrowser_Click_1"></Button>
-        </DockPanel>
+        <Border Grid.Row="0" Height="35" Background="#2A2B34" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <TextBlock Text="Add List" 
+                           HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" 
+                           Background="#2A2B34" Foreground="#D3D3D5" />
+        </Border>
 
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Video Preview</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox x:Name="VideoPreview" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="VideoBrowser" Click="VideoBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
-        </DockPanel>
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="75"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Marquee Image</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox x:Name="MarqueeImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="MarqueeBrowser" Click="MarqueeBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
-        </DockPanel>
+            <Label Grid.Row="0" Grid.Column="0" Content="Label" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" Panel.ZIndex="200" 
+                         x:Name="GameTitle" Margin="10,2,10,2" Background="#343542" Foreground="#D3D3D5"/>
 
+            <Label Grid.Row="1" Grid.Column="0" Content="Snapshot" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="GameThumbnail"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="1" Grid.Column="6" Margin="0,2,10,2" x:Name="ThumbnailBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="ThumbnailBrowser_Click_1"/>
 
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Flyer Image</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox x:Name="FlyerImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="FlyerBrowser" Click="FlyerBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
-        </DockPanel>
+            <Label Grid.Row="2" Grid.Column="0" Content="Video Preview" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="VideoPreview"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="2" Grid.Column="6" Margin="0,2,10,2" x:Name="VideoBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="VideoBrowser_Click"/>
 
-        <Label Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 0, 0, 0">Instruction Image</Label>
-        <DockPanel Margin="0 0 0 10">
-            <TextBox x:Name="InstructionImage" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0, 0, 0"></TextBox>
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="InstructionBrowser" Click="InstructionBrowser_Click" Content="Browse" Width="54" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0, 0, 10, 0"></Button>
-        </DockPanel>
-        
+            <Label Grid.Row="3" Grid.Column="0" Content="Marquee Image" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="MarqueeImage"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="3" Grid.Column="6" Margin="0,2,10,2" x:Name="MarqueeBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="MarqueeBrowser_Click"/>
 
-        
-        <DockPanel Margin="0 0 0 10">
-            <Label x:Name="DefaultListLabel" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left">Default List / Folder</Label>
-            <CheckBox x:Name="DefaultListCheckbox" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="{Binding XPath=@default, Source={StaticResource Data}, Converter={StaticResource StringToBooleanConverter}}"></CheckBox>
-        </DockPanel>
+            <Label Grid.Row="4" Grid.Column="0" Content="Flyer Image" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="FlyerImage"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="4" Grid.Column="6" Margin="0,2,10,2" x:Name="FlyerBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="FlyerBrowser_Click"/>
 
-        <DockPanel Margin="0 0 0 10">
-            <Button FontWeight="Bold" Background="#FFCC00" Foreground="#0F228B" x:Name="AddGameButton" Width="120" Height="32" HorizontalAlignment="right" VerticalAlignment="Bottom" Margin="0, 0, 0, 0" Click="AddGameButton_Click_1">Add</Button>
-        </DockPanel>
-        
-    </StackPanel>
+            <Label Grid.Row="5" Grid.Column="0" Content="Instruction Image" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="InstructionImage"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="5" Grid.Column="6" Margin="0,2,10,2" x:Name="InstructionBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="InstructionBrowser_Click"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Content="Logo Image" Foreground="#D3D3D5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" Panel.ZIndex="200" x:Name="LogoImage"
+                         Margin="10,2,5,2" Background="#343542" Foreground="#D3D3D5"/>
+            <Button Grid.Row="6" Grid.Column="6" Margin="0,2,10,2" x:Name="LogoBrowser"
+                        Content="Browse" Background="#343542" Foreground="#D3D3D5" Click="LogoBrowser_Click"/>
+
+            <CheckBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" x:Name="DefaultListCheckbox" 
+                          IsChecked="{Binding XPath=@default, Source={StaticResource Data}, Converter={StaticResource StringToBooleanConverter}}"
+                          Content="Default List / Folder" Margin="10,2" Background="#343542" Foreground="#D3D3D5"/>
+        </Grid>
+
+        <Border Grid.Row="2" Height="50" Background="#2A2B34" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Button Content="Add" Width="80" Height="30" 
+                    x:Name="AddGameButton" Click="AddGameButton_Click_1"
+                    Background="#3F404E" Foreground="#D3D3D5" Margin="10,0,10,0" />
+                <Button Content="Cancel" Click="Button_Click" 
+                    Width="80" Height="30" 
+                    Background="#3F404E" Foreground="#D3D3D5" Margin="0,0,10,0"/>
+            </StackPanel>
+        </Border>        
+    </Grid>
 </Window>

@@ -36,7 +36,8 @@ namespace BigBlueConfig
             try
             {
                 // verify XML configuration files
-                verifyConfigFile();
+                // should make this a preprocessor directive
+                //verifyConfigFile();
                 verifyEmulatorFile();
                 verifyListFile();
 

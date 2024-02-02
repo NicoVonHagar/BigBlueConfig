@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace BigBlueConfig
 {
@@ -24,11 +15,11 @@ namespace BigBlueConfig
         int indexToAddGame;
         string xPath;
 
-        public AddList(XmlDataProvider xdp, int index, string currentXPath)
+        public AddList(int index, string currentXPath)
         {
             InitializeComponent();
 
-            this.PreviewKeyUp += HandlePress;
+            PreviewKeyUp += HandlePress;
 
             GameTitle.Focus();
 
@@ -41,13 +32,8 @@ namespace BigBlueConfig
         {
             if (e.Key == Key.Escape)
             {
-                this.Close();
+                Close();
             }
-        }
-
-        private void ThumbnailBrowser_Click_1(object sender, RoutedEventArgs e)
-        {
-            GameThumbnail.Text = BigBlueConfig.Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
         }
 
         private void AddGameButton_Click_1(object sender, RoutedEventArgs e)
@@ -57,21 +43,15 @@ namespace BigBlueConfig
                 // create a new XmlNode for the game to add
                 XmlNode gameNode = ((App)Application.Current).listDocument.CreateNode(XmlNodeType.Element, "item", "");
 
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "name", GameTitle.Text);
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "snap", GameThumbnail.Text);
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "marquee", MarqueeImage.Text);
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "flyer", FlyerImage.Text);
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "instruct", InstructionImage.Text);
-                BigBlueConfig.Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "video", VideoPreview.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "name", GameTitle.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "snap", GameThumbnail.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "marquee", MarqueeImage.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "flyer", FlyerImage.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "instruct", InstructionImage.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "video", VideoPreview.Text);
+                Utilities.AddValueToNode(((App)Application.Current).listDocument, gameNode, "logo", LogoImage.Text);
 
                 XmlNode listNode = ((App)Application.Current).listDocument.CreateNode(XmlNodeType.Element, "list", "");
-
-                /*
-                if (Convert.ToBoolean(attr.Value) == true)
-                {
-                    cb.IsChecked = true;
-                }
-                */
 
                 if (DefaultListCheckbox.IsChecked == true)
                 {
@@ -106,15 +86,15 @@ namespace BigBlueConfig
 
                 ((App)Application.Current).listDocument.Save("lists.xml");
 
-                if (this.Owner.Resources["Data"] != null)
+                if (Owner.Resources["Data"] != null)
                 {
-                    XmlDataProvider pXdp = (XmlDataProvider)this.Owner.Resources["Data"];
+                    XmlDataProvider pXdp = (XmlDataProvider)Owner.Resources["Data"];
                     pXdp.Document = ((App)Application.Current).listDocument;
                     pXdp.Refresh();
                 }
 
-                this.Close();
-                this.Owner.Activate();
+                Close();
+                Owner.Activate();
             }
             catch (Exception ex)
             {
@@ -122,24 +102,55 @@ namespace BigBlueConfig
             }
         }
 
+        private void ThumbnailBrowser_Click_1(object sender, RoutedEventArgs e)
+        {
+            GameThumbnail.Text = Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+        }
+
         private void VideoBrowser_Click(object sender, RoutedEventArgs e)
         {
-            VideoPreview.Text = BigBlueConfig.Utilities.GetFileNameFromWindowDialog(".avi", "Video files|*.mp4;*.mpg;*.mpeg*.avi;*.avi|All files (*.*)|*.*");
+            VideoPreview.Text = Utilities.GetFileNameFromWindowDialog(".avi", "Video files|*.mp4;*.mpg;*.mpeg*.avi;*.avi|All files (*.*)|*.*");
         }
 
         private void MarqueeBrowser_Click(object sender, RoutedEventArgs e)
         {
-            MarqueeImage.Text = BigBlueConfig.Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+            MarqueeImage.Text = Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
         }
 
         private void FlyerBrowser_Click(object sender, RoutedEventArgs e)
         {
-            FlyerImage.Text = BigBlueConfig.Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+            FlyerImage.Text = Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
         }
 
         private void InstructionBrowser_Click(object sender, RoutedEventArgs e)
         {
-            InstructionImage.Text = BigBlueConfig.Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+            InstructionImage.Text = Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+        }
+
+        private void LogoBrowser_Click(object sender, RoutedEventArgs e)
+        {
+            LogoImage.Text = Utilities.GetFileNameFromWindowDialog(".png", "Image files)|*.png;*.jpg;*.jpeg");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
+        }
+
+        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (e.OriginalSource is Border)
+            {
+                WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+            }
         }
     }
 }
