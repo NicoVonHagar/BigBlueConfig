@@ -1,0 +1,13 @@
+﻿<local:BigBlueWindow x:Class="BigBlue.ThemeableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BigBlue"
+        Title="Big Blue Frontend" Background="Black" AllowsTransparency="False" ResizeMode="NoResize" UseLayoutRounding="True" Cursor="None">
+    <Canvas x:Name="LayoutRoot" Background="Black" IsHitTestVisible="False">
+        <Canvas x:Name="FrontEndContainer" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0" IsHitTestVisible="False" ClipToBounds="True">
+            <Canvas x:Name="ClockCanvas" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsHitTestVisible="False"></Canvas>
+            <Canvas x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" IsHitTestVisible="False" Panel.ZIndex="1000"></Canvas>
+        </Canvas>
+    </Canvas>
+</local:BigBlueWindow>

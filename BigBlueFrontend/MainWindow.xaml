@@ -1,0 +1,360 @@
+﻿<local:BigBlueWindow x:Name="FrontEndWindow" x:Class="BigBlue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="clr-namespace:BigBlue"
+        Title="Big Blue Frontend" Background="Black" AllowsTransparency="False" ResizeMode="NoResize" UseLayoutRounding="True" Cursor="None">
+    <!--<Viewbox x:Name="DPIBox">-->
+        <Canvas x:Name="LayoutRoot" Background="Black" IsHitTestVisible="False">
+            <Canvas x:Name="FrontEndContainer" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0" IsHitTestVisible="False" ClipToBounds="True">
+                <Rectangle x:Name="SkyBackground5" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="SkyBackground5Brush"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="SkyBackground4" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="SkyBackground4Brush"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="SkyBackground3" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="SkyBackground3Brush"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="SkyBackground2" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="SkyBackground2Brush"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="SkyBackground1" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush x:Name="SkyBackground1Brush"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="SkyGradient1" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"></Rectangle>
+                <Rectangle x:Name="SkyGradient2" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"></Rectangle>
+                <Rectangle x:Name="SkyGradient3" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"></Rectangle>
+                <Rectangle x:Name="SkyGradient4" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"></Rectangle>
+                <Rectangle x:Name="Cloud1Rectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="Cloud1Image" ImageSource="/assets/cloud1.png" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="Cloud2Rectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="Cloud2Image" RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="/assets/cloud2.png" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="Cloud3Rectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 60" Visibility="Collapsed" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="Cloud3Image" RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="/assets/sunsetclouds.png" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="Cloud4Rectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 60" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="Cloud4Image" RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="/assets/nightclouds.png" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="Cloud5Rectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 60" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="Cloud5Image" RenderOptions.BitmapScalingMode="NearestNeighbor" ImageSource="/assets/dawnclouds.png" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="BuildingRectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="0" IsHitTestVisible="False">
+                    <!--
+                BitmapImage mainBuildingImageDay;
+            BitmapImage mainBuildingImageSunset;
+            BitmapImage mainBuildingImageNight;
+
+            BitmapImage mainBuildingImageVertDay;
+            BitmapImage mainBuildingImageVertSunset;
+            BitmapImage mainBuildingImageVertNight;
+
+            // main building tiled image (horizontal)
+            mainBuildingImageDay = loadImage("mainbuilding.png");
+            mainBuildingImageSunset = loadImage("mainbuilding_sunset.png");
+            mainBuildingImageNight = loadImage("mainbuilding_night.png");
+            
+            // main building tiled image (vertical)
+            mainBuildingImageVertDay = loadImage("mainbuildingvert.png");
+            mainBuildingImageVertSunset = loadImage("mainbuildingvert_sunset.png");
+            mainBuildingImageVertNight = loadImage("mainbuildingvert_night.png");
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="MainBuildingTiledImage" TileMode="Tile" Stretch="Uniform" ViewportUnits="Absolute"></ImageBrush>
+                </Rectangle.Fill>
+                -->
+                </Rectangle>
+                <Rectangle x:Name="BuildingRoofRectangle" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False">
+                    <!--
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="BuildingRoofImage" TileMode="None"></ImageBrush>
+                </Rectangle.Fill>
+                -->
+                </Rectangle>
+                <Rectangle x:Name="BgBuildingsRectangle" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Right="0" Canvas.Bottom="0" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <!--
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="StreetFighterBuilding" TileMode="None" AlignmentX="Right" AlignmentY="Bottom"></ImageBrush>
+                </Rectangle.Fill>
+                -->
+                </Rectangle>
+                <Rectangle x:Name="SnapShotBackgroundRectangle" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False"></Rectangle>
+                <!--
+            <Rectangle x:Name="SnapShotRectangle" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False">
+                
+            </Rectangle>
+            -->
+                <Image x:Name="SnapShotRectangle" VerticalAlignment="Center" Stretch="Uniform" HorizontalAlignment="Center" IsHitTestVisible="False"></Image>
+                <Canvas x:Name="Video" IsHitTestVisible="False" Background="Black" Opacity="0">
+                    <MediaElement x:Name="VideoElement" Stretch="Uniform" HorizontalAlignment="Center" IsHitTestVisible="False" MediaFailed="VideoElement_MediaFailed" />
+                </Canvas>
+                <Canvas x:Name="HaggarCanvas" HorizontalAlignment="Right" ClipToBounds="True" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle x:Name="HaggarBackgroundRectangle" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="HaggarHeadRectangle" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                        <!--
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="HaggarImage" TileMode="None" ViewboxUnits="Absolute"></ImageBrush>
+                    </Rectangle.Fill>
+                    -->
+                    </Rectangle>
+                    <Rectangle x:Name="KnifeRectangle" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="KnifeImage" TileMode="None"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="HaggarForegroundRectangle" Visibility="Hidden" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="HaggarForegroundImage" TileMode="None"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="IgniteRectangle" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    </Rectangle>
+                    <Rectangle x:Name="IgniteCollisionBox" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <SolidColorBrush>
+                                <SolidColorBrush.Color>Blue</SolidColorBrush.Color>
+                            </SolidColorBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="StaticRectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" IsHitTestVisible="False">
+                        <!--
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="StaticImage" TileMode="Tile" ImageSource="/assets/static.png" ViewboxUnits="Absolute" ViewportUnits="Absolute" Viewbox="0,0,59,77" AlignmentX="Left" AlignmentY="Top" Stretch="Uniform"></ImageBrush>
+                    </Rectangle.Fill>
+                    -->
+                    </Rectangle>
+                </Canvas>
+                <Rectangle x:Name="ScreenDoor" VerticalAlignment="Top" HorizontalAlignment="Right" Opacity="0.25" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <SolidColorBrush>
+                            <SolidColorBrush.Color>
+                                <Color A="255" R="59" G="49" B="49"/>
+                            </SolidColorBrush.Color>
+                        </SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="ScreenBackgroundRectangle" HorizontalAlignment="Right" VerticalAlignment="Top" IsHitTestVisible="False">
+                    <!--
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="ScreenBackgroundImage" TileMode="None"></ImageBrush>
+                </Rectangle.Fill>
+                -->
+                </Rectangle>
+                <Rectangle x:Name="RampageMonsterRectangle" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False">
+                    <!--
+                <Rectangle.Fill>
+                    <ImageBrush x:Name="RampageImage" Viewbox="0,0,304,285" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top">
+                    </ImageBrush>
+                </Rectangle.Fill>
+                -->
+                </Rectangle>
+                <Rectangle x:Name="RampageMonsterFlameRectangle" Canvas.Left="0" Canvas.Top="0" Visibility="Hidden" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="RampageFlameImage" ImageSource="/assets/rampageburning.png" Viewbox="0,0,304,285" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top">
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Rectangle x:Name="RtypePlasma" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="PlasmaImage" ImageSource="/Assets/rtypeplasma.png" Viewbox="0,492,120,123" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top">
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="Rtype" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False">
+                    <!--
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="RtypeImage" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top">
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                    -->
+                </Rectangle>
+                <!--
+                <Rectangle x:Name="RtypeCollisionBox" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" RenderOptions.BitmapScalingMode="NearestNeighbor">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Blue"></SolidColorBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            -->
+                <Rectangle x:Name="GeorgeDamageDecal" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" IsHitTestVisible="False"></Rectangle>
+                <Canvas x:Name="KOCountdown" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0" Panel.ZIndex="100" IsHitTestVisible="False">
+                    <Border x:Name="BarBorder" BorderBrush="White" CornerRadius="1 1 1 1" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                        <Canvas x:Name="BarBorderBackground" Background="#F82040" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                            <Canvas x:Name="OneContainer" HorizontalAlignment="Right" Canvas.Left="0" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                                <Rectangle x:Name="One" HorizontalAlignment="Right" Canvas.Right="0" RenderOptions.BitmapScalingMode="NearestNeighbor" IsHitTestVisible="False">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush>
+                                            <SolidColorBrush.Color>Yellow</SolidColorBrush.Color>
+                                        </SolidColorBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Canvas>
+                            <Canvas x:Name="TwoContainer" HorizontalAlignment="Left" Canvas.Right="0" IsHitTestVisible="False">
+                                <Rectangle x:Name="Two" HorizontalAlignment="Left" Canvas.Left="0" IsHitTestVisible="False">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush>
+                                            <SolidColorBrush.Color>Yellow</SolidColorBrush.Color>
+                                        </SolidColorBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Canvas>
+                        </Canvas>
+                    </Border>
+                    <Rectangle x:Name="OneName" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="OneNameImage" ImageSource="/assets/lifebarnames.png" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="TwoName" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="TwoNameImage" ImageSource="/assets/lifebarnames.png" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="KO" IsHitTestVisible="False">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="KOImage" ImageSource="/Assets/knockoutui.png" Viewbox="0, 0, 120, 73" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="FirstDigit" HorizontalAlignment="Left" VerticalAlignment="Bottom" Canvas.Bottom="0" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="SecondDigit" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Bottom="0" IsHitTestVisible="False"></Rectangle>
+                </Canvas>
+                <Canvas x:Name="ForegroundObjects" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Bottom="-1" Panel.ZIndex="100" IsHitTestVisible="False">
+                    <Rectangle x:Name="FightersRectangle" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Bottom="0" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="Blood" Panel.ZIndex="120" Visibility="Hidden" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="Blood2" Panel.ZIndex="120" Visibility="Hidden" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="Blood3" Panel.ZIndex="120" Visibility="Hidden" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="Blood4" Panel.ZIndex="120" Visibility="Hidden" IsHitTestVisible="False"></Rectangle>
+                </Canvas>
+                <Canvas x:Name="GameList" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False" Panel.ZIndex="101">
+                    <Canvas x:Name="GameListOutlines" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False"></Canvas>
+                </Canvas>
+                <Rectangle x:Name="PressStartRectangle" Visibility="Collapsed" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="PressStartImage" ImageSource="/assets/pushstart.png"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Canvas x:Name="ClockCanvas" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsHitTestVisible="False">
+                    <Rectangle x:Name="HourOneRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="HourTwoRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="ColonRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="MinuteOneRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="MinuteTwoRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="TwelveHourOneRectangle" IsHitTestVisible="False"></Rectangle>
+                    <Rectangle x:Name="TwelveHourTwoRectangle" IsHitTestVisible="False"></Rectangle>
+                </Canvas>
+                <Rectangle x:Name="NewChallengerText" Visibility="Hidden" Panel.ZIndex="200" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="NewChallengerImage" ImageSource="/assets/newchallenger.png" Viewbox="0,0,586,135" ViewboxUnits="Absolute" ViewportUnits="Absolute" TileMode="None" AlignmentX="Center" AlignmentY="Center"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Canvas x:Name="VsOverlay" Background="#00009E" Opacity="0" Visibility="Collapsed" Panel.ZIndex="200" IsHitTestVisible="False">
+                    <Rectangle x:Name="VersusPortraits">
+                        <!--
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="VsImage" TileMode="None" AlignmentX="Center" AlignmentY="Center"></ImageBrush>
+                    </Rectangle.Fill>
+                    -->
+                    </Rectangle>
+                    <Rectangle x:Name="VersusPortraitsSecondary" Visibility="Collapsed"></Rectangle>
+                </Canvas>
+                <Rectangle x:Name="FightRectangle" Visibility="Hidden" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/assets/fight.png" Viewbox="0, 0, 236, 86" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="DoubleKODecision" Visibility="Hidden" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="/assets/doubleko.png" Viewbox="0, 0, 240, 145" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="DrawGameRectangle" Visibility="Hidden" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="DrawGameImage" ImageSource="/assets/drawgame.png" Viewbox="0, 0, 221, 126" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="WinnerRectangle" Visibility="Hidden" Panel.ZIndex="100" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="WinnerImage" ImageSource="/assets/winnertext.png" ViewboxUnits="Absolute" TileMode="None" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Canvas x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" IsHitTestVisible="False" Panel.ZIndex="1000"></Canvas>
+            <!--         
+                <TextBox x:Name="KeyTest" Margin="100" Width="400" Canvas.Right="0" Height="600" Visibility="Visible" HorizontalAlignment="Right" Panel.ZIndex="5000"></TextBox>
+            
+            
+               
+            <TextBox x:Name="KeyTest2" Margin="200" Width="500" Height="200" Visibility="Visible" HorizontalAlignment="Right"></TextBox>
+-->
+
+
+
+                <!--
+            <Path Stroke="White" StrokeThickness="1" Panel.ZIndex="300">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure StartPoint="1300,1305">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <BezierSegment Point1="1240,1200" Point2="300,900" Point3="100,1601" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Stroke="White" StrokeThickness="1" Panel.ZIndex="300">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure StartPoint="1300,1305">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+                                            <BezierSegment Point1="1240,1200" Point2="300,900" Point3="200,1601" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+-->
+
+            </Canvas>
+            <!--
+        <Canvas x:Name="MainMenuContainer" ClipToBounds="True" HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False">
+            <Canvas x:Name="MainMenu" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" IsHitTestVisible="False"></Canvas>
+        </Canvas>
+        <Canvas x:Name="DrawCollision"></Canvas>
+        -->
+        
+    </Canvas>
+    
+    <!--</Viewbox>-->
+</local:BigBlueWindow>

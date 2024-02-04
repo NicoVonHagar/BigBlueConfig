@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBlueConfig", "BigBlueConfig\BigBlueConfig.csproj", "{E42F6D33-3593-48D5-98C7-ED474EC9F273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBlueFrontend", "BigBlueFrontend\BigBlueFrontend.csproj", "{5D4DD6C8-71BA-43EA-89C0-F4A48CC6ED53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E42F6D33-3593-48D5-98C7-ED474EC9F273}.Debug|Any CPU.Build.0 = Debug|x64
 		{E42F6D33-3593-48D5-98C7-ED474EC9F273}.Release|Any CPU.ActiveCfg = Release|x64
 		{E42F6D33-3593-48D5-98C7-ED474EC9F273}.Release|Any CPU.Build.0 = Release|x64
+		{5D4DD6C8-71BA-43EA-89C0-F4A48CC6ED53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4DD6C8-71BA-43EA-89C0-F4A48CC6ED53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4DD6C8-71BA-43EA-89C0-F4A48CC6ED53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4DD6C8-71BA-43EA-89C0-F4A48CC6ED53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
